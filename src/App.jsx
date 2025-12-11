@@ -1,5 +1,8 @@
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
+import Cast from './components/Cast/Cast';
+import Reviews from './components/Reviews/Reviews';
+import SharedLayout from './components/SharedLayout/SharedLayout';
 import HomePage from './pages/HomePage/HomePage';
 import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage';
 import MoviesPage from './pages/MoviesPage/MoviesPage';
@@ -10,21 +13,21 @@ import './App.css';
 
 function App() {
   return (
-    <>
-      <nav>
-        <NavLink to="/" end>
-          Home
-        </NavLink>
-        <NavLink to="/movies">Movies</NavLink>
-      </nav>
+    <div className="container">
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/movies" element={<MoviesPage />} />
 
-        <Route path="*" element={<HomePage />} />
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
+
+          <Route path="*" element={<HomePage />}></Route>
+        </Route>
       </Routes>
-    </>
+    </div>
   );
 }
 
