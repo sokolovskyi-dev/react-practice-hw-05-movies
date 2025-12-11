@@ -17,6 +17,7 @@ export default defineConfig({
       },
     }),
   ],
+  base: '/react-practice-hw-05-movies/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

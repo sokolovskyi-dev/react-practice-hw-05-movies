@@ -1,5 +1,5 @@
 {
-  "name": "vite-react-template",
+  "name": "movies",
   "version": "1.0.0",
   "private": true,
   "description": "Modern Vite + React + SWC template with ESLint Flat Config, Prettier 3, Husky 9, lint-staged, alias @, Checker overlay, and full Node 20+ compatibility.",
@@ -13,17 +13,18 @@
     "boilerplate",
     "frontend",
     "javascript",
-    "starter"
+    "starter",
+    "movies"
   ],
   "author": "Serhii Sokolovskyi",
   "license": "MIT",
-  "homepage": "https://sokolovskyi-dev.github.io/vite-react-template/",
+  "homepage": "https://sokolovskyi-dev.github.io/react-practice-hw-05-movies/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sokolovskyi-dev/vite-react-template.git"
+    "url": "https://github.com/sokolovskyi-dev/react-practice-hw-05-movies.git"
   },
   "bugs": {
-    "url": "https://github.com/sokolovskyi-dev/vite-react-template/issues"
+    "url": "https://github.com/sokolovskyi-dev/react-practice-hw-05-movies/issues"
   },
   "type": "module",
   "engines": {
