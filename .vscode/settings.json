@@ -2,13 +2,13 @@
   "editor.formatOnSave": true,
 
   "editor.codeActionsOnSave": {
-    "source.fixAll": "always",
     "source.fixAll.eslint": "always"
   },
 
   "editor.defaultFormatter": "esbenp.prettier-vscode",
 
   "eslint.validate": ["javascript", "javascriptreact"],
+  "eslint.run": "onSave",
 
   "files.eol": "\n",
 
