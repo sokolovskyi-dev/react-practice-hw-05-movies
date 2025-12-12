@@ -51,47 +51,59 @@ export default [
     },
 
     rules: {
-      // Базовые рекомендованные правила от плагинов
+      // Recommended rulesets
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.configs.recommended.rules,
       ...importPlugin.configs.recommended.rules,
 
-      // Разрешаем alias '@/...' и игнорируем абсолютные роуты типа '/'
+      // Alias '@/...' and absolute routes like '/' (common for assets or routing)
       'import/no-unresolved': ['error', { ignore: ['^/'] }],
 
-      // ОТКЛЮЧАЕМ старое правило порядка импортов
+      // Prevent conflicts with simple-import-sort
       'import/order': 'off',
 
-      // ВКЛЮЧАЕМ авто-сортировку импортов
+      // Import sorting + blank lines between groups
       'simple-import-sort/imports': [
         'error',
         {
           groups: [
-            // 1. React, ReactDOM и прочие внешние пакеты (node_modules)
-            ['^react$', '^react-dom$', '^[a-zA-Z0-9@]'],
-            // 2. Алиасы проекта
+            // 1) React first (optional but keeps consistency)
+            ['^react$', '^react-dom$'],
+
+            // 2) External packages (node_modules)
+            ['^@?\\w'],
+
+            // 3) Internal aliases
             ['^@/'],
-            // 3. Родительские / соседние модули
+
+            // 4) Parent imports
             ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+
+            // 5) Sibling/current-dir imports
             ['^\\./(?!/?$)', '^\\./?$'],
-            // 4. Стили и ассеты
-            ['^.+\\.s?css$', '^.+\\.(png|jpe?g|svg|gif|webp)$'],
+
+            // 6) Styles
+            ['^.+\\.s?css$'],
+
+            // 7) Assets
+            ['^.+\\.(png|jpe?g|svg|gif|webp)$'],
           ],
         },
       ],
-
       'simple-import-sort/exports': 'error',
 
+      // React Refresh
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
 
-      // React 17+ — react в скоупе не обязателен
+      // React 17+
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
 
+      // Misc
       'no-invalid-this': 'error',
 
-      // Prettier как последний шаг форматирования
+      // Prettier via ESLint (so eslint --fix formats code)
       'prettier/prettier': 'error',
     },
   },
