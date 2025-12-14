@@ -2,9 +2,9 @@ import React from 'react';
 
 import { IoIosArrowRoundBack } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-const BackLink = () => {
+const BackLink = ({ to }) => {
   return (
-    <Link>
+    <Link to={to}>
       <IoIosArrowRoundBack />
       Go back
     </Link>

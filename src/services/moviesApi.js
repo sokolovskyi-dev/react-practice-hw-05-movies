@@ -21,3 +21,21 @@ export const getMovieDetails = async id => {
 
   return data;
 };
+
+export const getMovieCredits = async id => {
+  const { data } = await apiClient.get(`movie/${id}/credits`);
+
+  return data.cast;
+};
+
+export const getReviews = async id => {
+  const { data } = await apiClient.get(`movie/${id}/reviews`);
+
+  return data.results;
+};
+
+export const getMovieBySearch = async query => {
+  const { data } = await apiClient.get('search/movie', { params: { query } });
+
+  return data.results;
+};
