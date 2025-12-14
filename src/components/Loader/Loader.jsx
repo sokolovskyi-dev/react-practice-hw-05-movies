@@ -1,8 +1,10 @@
 import React from 'react';
 
-import ClipLoader from 'react-spinners/ClipLoader';
+import { LoaderStyled } from './Loader.styled';
+
+// import ClipLoader from 'react-spinners/ClipLoader';
 const Loader = () => {
-  return <ClipLoader size={40} color="#36d7b7" />;
+  return <LoaderStyled size={50} color="#36d7b7" />;
 };
 
 export default Loader;

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 
@@ -44,7 +44,10 @@ const MovieDetailsPage = () => {
       {error && <p>{error}</p>}
       {movie && <MovieCard movie={movie} />}
       {movie && <AddInformation />}
-      <Outlet />
+
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
